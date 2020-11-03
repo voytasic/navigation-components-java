@@ -21,6 +21,7 @@ public class ConfirmationFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        assert getArguments() != null;
         recipient = getArguments().getString("recipient");
         money = getArguments().getParcelable("amount");
     }
@@ -28,7 +29,7 @@ public class ConfirmationFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        
+
         String confirmationMsg = "You sent $"+money.getAmount()+" to "+recipient;
         ((TextView) view.findViewById(R.id.confirmation_message)).setText(confirmationMsg);
     }
